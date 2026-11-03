@@ -1,0 +1,112 @@
+#onplas-transition-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+#root
+  [class~="fixed"][class~="inset-0"][class~="z-[300]"][class~="overflow-hidden"] {
+  display: none !important;
+}
+
+#onplas-transition-root .origin-top-left {
+  transform-origin: top left;
+}
+
+#onplas-transition-root .origin-bottom-right {
+  transform-origin: bottom right;
+}
+
+#onplas-transition-root .origin-right {
+  transform-origin: right;
+}
+
+#onplas-transition-root .origin-left {
+  transform-origin: left;
+}
+
+#onplas-transition-root .inset-y-0 {
+  top: 0;
+  bottom: 0;
+}
+
+#onplas-transition-root .z-40 {
+  z-index: 40;
+}
+
+#onplas-transition-root .h-24 {
+  height: 6rem;
+}
+
+#onplas-transition-root .h-14 {
+  height: 3.5rem;
+}
+
+#onplas-transition-root .w-16 {
+  width: 4rem;
+}
+
+#onplas-transition-root .w-48 {
+  width: 12rem;
+}
+
+#onplas-transition-root .mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+#onplas-transition-root .my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#onplas-transition-root [class~="border-[#ff5c70]/40"] {
+  border-color: rgba(255, 92, 112, 0.4);
+}
+
+#onplas-transition-root [class~="text-[#ffd8dc]"] {
+  color: #ffd8dc;
+}
+
+#onplas-transition-root [class~="text-[#f8f2e8]"] {
+  color: #f8f2e8;
+}
+
+#onplas-transition-root [class~="text-[#ffa3ac]/75"] {
+  color: rgba(255, 163, 172, 0.75);
+}
+
+#onplas-transition-root [class~="text-[#f7efe4]"] {
+  color: #f7efe4;
+}
+
+#onplas-transition-root [class~="bg-[#ff4d62]"] {
+  background-color: #ff4d62;
+}
+
+#onplas-transition-root [class~="text-[clamp(1.8rem,5.2vw,3.6rem)]"] {
+  font-size: clamp(1.8rem, 5.2vw, 3.6rem);
+}
+
+#onplas-transition-root [class~="bg-gradient-to-l"][class~="from-[#ff7a88]/70"] {
+  background-image: linear-gradient(to left, rgba(255, 122, 136, 0.7), transparent);
+}
+
+#onplas-transition-root [class~="bg-gradient-to-r"][class~="from-[#ff7a88]/70"] {
+  background-image: linear-gradient(to right, rgba(255, 122, 136, 0.7), transparent);
+}
+
+#onplas-transition-root [class~="bg-gradient-to-r"][class~="to-[#ff5c70]/70"] {
+  background-image: linear-gradient(to right, transparent, rgba(255, 92, 112, 0.7));
+}
+
+#onplas-transition-root [class~="bg-gradient-to-l"][class~="to-[#ff5c70]/70"] {
+  background-image: linear-gradient(to left, transparent, rgba(255, 92, 112, 0.7));
+}
+
+@media (min-width: 640px) {
+  #onplas-transition-root [class~="sm:w-28"] {
+    width: 7rem;
+  }
+}
