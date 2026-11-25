@@ -46,7 +46,7 @@ function Index() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      await loadScript("/onplas-rp/rule-text-override.js?v=8");
+      await loadScript("/onplas-rp/rule-text-override.js?v=9");
       await loadScript("/onplas-rp/transitions.js?v=16");
       if (!cancelled) setHelpersReady(true);
     })();

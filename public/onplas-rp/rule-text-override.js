@@ -206,11 +206,21 @@
       section.insertBefore(aiCard, metagameCard ? metagameCard.nextSibling : ruleList.nextSibling);
     }
 
-    if (!section.querySelector('[data-avatar-rule]')) {
-      const avatarCard = buildAccordionCard('avatarRule', '⚜', avatarRuleTitle, [avatarRuleText]);
-      const aiCard = section.querySelector('[data-ai-post-rule]');
-      section.insertBefore(avatarCard, aiCard ? aiCard.nextSibling : ruleList.nextSibling);
-    }
+    ensureAvatarRuleInFlood();
+  };
+
+  const ensureAvatarRuleInFlood = () => {
+    if (document.querySelector('[data-avatar-rule]')) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+    while (node && node.nodeValue?.trim() !== 'Темы и разговоры') node = walker.nextNode();
+    if (!node) return;
+    let card = node.parentElement;
+    while (card && !card.parentElement?.matches?.('div.flex.flex-col.gap-4')) card = card.parentElement;
+    if (!card) return;
+    const avatarCard = buildAccordionCard('avatarRule', '⚜', avatarRuleTitle, [avatarRuleText]);
+    avatarCard.classList.remove('mt-4');
+    card.parentElement.insertBefore(avatarCard, card.nextSibling);
   };
 
   const root = document.documentElement;
