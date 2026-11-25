@@ -1,0 +1,49 @@
+/* Onplas — мобильные улучшения.
+   Анимации не трогаем: всё, что ниже, меняет только раскладку, размеры
+   и производительность, а не эффекты (лунные переходы, туман, звёзды). */
+
+/* Плавный скролл и безопасные зоны (вырезы iPhone) */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* На телефоне маленькие экраны уже, уменьшаем крупные заголовки,
+   чтобы текст не переносился по одной букве */
+@media (max-width: 47.99rem) {
+  .font-display.text-3xl {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+  /* Кликабельные зоны в навигации — минимум 44px, как требует Apple/Google */
+  nav a, nav button {
+    min-height: 44px;
+  }
+  /* Длинный русский текст в заголовках корректно переносится */
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Скроллируемые блоки (таблицы правил и т.п.) — с инерцией на телефоне */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Производительность на слабых телефонах: не отключаем анимации,
+   а помогаем композитору — слои для эффектов рендерятся на GPU */
+.stars-layer, .fog-layer, .ember, .moon-glow {
+  will-change: transform, opacity;
+  contain: layout style;
+}
+
+/* Тап по карточкам/кнопкам без синей вспышки на Android */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
