@@ -16,10 +16,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [
-      { rel: "stylesheet", href: "/onplas-rp/assets/index-D8mjEMMU.css?v=2" },
-      { rel: "stylesheet", href: "/onplas-rp/mobile.css?v=1" },
-    ],
+    links: [{ rel: "stylesheet", href: "/onplas-rp/assets/index-D8mjEMMU.css" }],
   }),
   component: Index,
 });
@@ -46,8 +43,8 @@ function Index() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      await loadScript("/onplas-rp/rule-text-override.js?v=9");
-      await loadScript("/onplas-rp/transitions.js?v=16");
+      await loadScript("/onplas-rp/rule-text-override.js?v=7");
+      await loadScript("/onplas-rp/transitions.js?v=15");
       if (!cancelled) setHelpersReady(true);
     })();
     return () => {
@@ -62,7 +59,7 @@ function Index() {
         {helpersReady && (
           <TransitionBridge
             onReady={() => {
-              void loadScript("/onplas-rp/assets/index-D0-XXavR.js?v=2", "module");
+              void loadScript("/onplas-rp/assets/index-D0-XXavR.js", "module");
             }}
           />
         )}
