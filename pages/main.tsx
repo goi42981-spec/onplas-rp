@@ -18,7 +18,7 @@ function loadScript(src: string, type?: "module") {
 
 (async () => {
   await loadScript("onplas-rp/rule-text-override.js?v=7");
-  await loadScript("onplas-rp/transitions.js?v=15");
+  await loadScript("onplas-rp/transitions.js?v=16");
   createRoot(document.getElementById("onplas-transition-root")!).render(
     <TransitionBridge
       onReady={() => {
